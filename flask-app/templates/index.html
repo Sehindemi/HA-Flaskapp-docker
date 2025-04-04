@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehindemi's App</title>
+    <style>
+        /* Overall Page Style */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #dfefff, #f2fff2);
+            color: #333;
+        }
+
+        nav {
+            background-color: #004080;
+            padding: 12px 0;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a1f7b7;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .counter {
+            font-size: 60px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #00b386;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #009966;
+        }
+
+        /* Animation for counter */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* User Section Styling */
+        .users-section {
+            max-width: 800px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .users {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .user {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 160px;
+            text-align: center;
+        }
+
+        .user img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .user p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .online {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .away {
+            background-color: #f0ad4e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to Sehindemi's Application</h1>
+            <p>This is a simple Flask app using Redis to count visits.</p>
+
+            <!-- Visit Counter Section -->
+            <div class="counter" id="visitCount">0</div>
+            <button class="button" onclick="incrementCounter()">Update Visit Count</button>
+        </div>
+        
+        <!-- User Section (fake users) -->
+        <div class="users-section">
+            <h2 style="color:#003366;">Who's Online</h2>
+            <div class="users">
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User1">
+                    <p><strong>James</strong><br>London, UK<br><span class="status online">Online</span></p>
+                </div>
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User2">
+                    <p><strong>Sofia</strong><br>Berlin, Germany<br><span class="status online">Online</span></p>
+                </div>
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User3">
+                    <p><strong>Ali</strong><br>Dubai, UAE<br><span class="status online">Online</span></p>
+                </div>
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User4">
+                    <p><strong>Amelia</strong><br>Lagos, Nigeria<br><span class="status away">Away</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Visit Counter -->
+    <script>
+        let visitCount = 0;
+
+        // Function to increment the visit count
+        function incrementCounter() {
+            visitCount++;
+            document.getElementById('visitCount').innerText = visitCount;
+        }
+    </script>
+
+</body>
+</html>
+

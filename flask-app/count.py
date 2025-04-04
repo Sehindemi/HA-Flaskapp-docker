@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 import redis
 
 app = Flask(__name__)
@@ -9,12 +9,12 @@ r = redis.Redis(host=redis_host, port=redis_port)
 
 @app.route('/')
 def welcome():
-  return "Welcome to Sehindemi's application"
+  return render_template('index.html')
 
 @app.route('/count')
 def count():
   count = r.incr('visits')
-  return f"This page has been visited {count} times."
+  return f"<h2 style='text-align:center;'>This page has been visited {count} times.</h2>"
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', port=5002)
