@@ -29,11 +29,14 @@ Follow these steps to build and deploy the app:
    cd HA-Flaskapp-docker/flask-app
 
 
-2. **Build and start the containers: Use Docker Compose to build and run the containers:**
+2. **Build and start the containers:**
+Use Docker Compose to build and run the containers:
+
+
 docker-compose up --build
 
-3. Access the Flask app: Open a browser and go to http://localhost to see the running Flask application.
-docker-compose up --scale flask-app=3
+3. **Access the Flask app:** 
+Open a browser and go to http://localhost to see the running Flask application.
 
 ## Stages of Building the Application
 
@@ -52,3 +55,5 @@ docker-compose up --scale flask-app=3
 - **NGINX**: NGINX acts as a reverse proxy and load balancer, directing incoming traffic to Flask instances, ensuring that multiple instances of Flask can handle requests simultaneously.
 
 - **Docker Compose**: Docker Compose simplifies the orchestration of these services, allowing you to manage both the Flask and NGINX containers with a single command.
+![alt text](image.png)
+![alt text](image-1.png)
